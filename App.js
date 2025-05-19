@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { TouchableOpacity, ImageBackground ,SafeAreaView,StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
+import { Alert, Pressable, TouchableOpacity, ImageBackground ,SafeAreaView,StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
 
 export default function App() {
   const img= require('./assets/fondo.png')
@@ -13,17 +13,20 @@ export default function App() {
       style={styles.backgroundImg}>
         <View style={styles.tarjeta}>
         <Image style={styles.img}
-      source={imgPerfil}>
-      </Image>
+          source={imgPerfil}>
+        </Image>
       <Text style={styles.estiloTexto}>
         Ezequiel Berakla
         Diseñador UI/UX
       </Text>
       <TextInput placeholder='Ingresa un comentario' style={styles.TextInput}>
       </TextInput>
-      <TouchableOpacity style={styles.Boton}>
+      <Pressable style={styles.Boton} onPress={()=>Alert.alert('Hola!')}>
         <Text>Contactar</Text>
-      </TouchableOpacity>
+      </Pressable>
+      <Pressable style={styles.Boton1}>
+        <Text>Ver Portfolio</Text>
+      </Pressable>
       </View>
       </ImageBackground>
     </SafeAreaView>
@@ -36,8 +39,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    //alignItems: 'center',
-    //justifyContent: 'center',
   },
   backgroundImg: {
     flex:1,
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginHorizontal: 20,
     width: 350,
-    height:300,
+    height:350,
     borderRadius:50
    },
    TextInput:{
@@ -79,6 +80,15 @@ const styles = StyleSheet.create({
     borderWidth:2,
     borderColor:'grey',
     marginHorizontal:120,
+    borderRadius:5,
+   },
+   Boton1:{
+    height:25,
+    width:85,
+    marginBottom:20,
+    borderWidth:2,
+    borderColor:'grey',
+    marginHorizontal:115,
     borderRadius:5,
    }
 });
