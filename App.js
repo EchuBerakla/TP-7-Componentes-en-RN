@@ -1,9 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { Alert, Pressable, TouchableOpacity, ImageBackground ,SafeAreaView,StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
 
 export default function App() {
-  const img= require('./assets/fondo.png')
+  const img= require('./assets/fondo.jpg')
   const imgPerfil=require('./assets/imgPerfil.jpg')
+  const [count, setCount]=useState(0);
+  SumarUno=()=>
+  {
+    setCount(count + 1);
+  }
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
@@ -19,14 +25,14 @@ export default function App() {
         Ezequiel Berakla
         Diseñador UI/UX
       </Text>
-      <TextInput placeholder='Ingresa un comentario' style={styles.TextInput}>
+      <TextInput placeholder='Ingresa un comentario' style={styles.TextInput} >
       </TextInput>
-      <Pressable style={styles.Boton} onPress={()=>Alert.alert('Hola!')}>
+      <Pressable style={styles.Boton} onPress={()=>Alert.alert('Hola, gracias por tu comentario')}>
         <Text>Contactar</Text>
       </Pressable>
-      <Pressable style={styles.Boton1}>
+      <TouchableOpacity style={styles.Boton1} onPress={()=>SumarUno()}>
         <Text>Ver Portfolio</Text>
-      </Pressable>
+      </TouchableOpacity>
       </View>
       </ImageBackground>
     </SafeAreaView>
